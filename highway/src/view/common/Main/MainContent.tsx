@@ -1,4 +1,4 @@
-import {MainView} from "../../pages/MainView/MainView.tsx";
+import {MainView} from "../../pages/MainView/MainView";
 
 export function MainContent() {
     return (

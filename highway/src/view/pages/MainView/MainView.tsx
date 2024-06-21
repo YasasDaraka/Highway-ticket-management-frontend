@@ -1,7 +1,7 @@
 import {LogButton} from "../../common/Button/LogButton";
 import {NavBar} from "../../common/NavBar/NavBar";
 import {useState} from "react";
-import {AdminPage} from "../Admin/AdminPage.tsx";
+import {AdminPage} from "../Admin/AdminPage";
 
 export function MainView() {
     const [currentPage, setCurrentPage] = useState('view');

@@ -1,4 +1,4 @@
-import {Input, InputProps} from "../../ui/input";
+import {Input, InputProps} from "../ui/input";
 import PropTypes from "prop-types";
 
 import React, {
@@ -6,7 +6,7 @@ import React, {
     useRef,
     useState
 } from "react";
-import {Label} from "../../ui/label";
+import {Label} from "../ui/label";
 import add from "../../images/add-icon.gif";
 
 export function InputItem(props:any) {

@@ -53,7 +53,7 @@ html {
     transition: all 0.2s;
 }
 .background-section {
-    background-image: url('src/view/assets/road.jpg');
+    background-image: url('view/assets/road.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

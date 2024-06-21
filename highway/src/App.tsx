@@ -1,5 +1,5 @@
 import './App.css'
-import {MainContent} from "./view/common/Main/MainContent.tsx";
+import {MainContent} from "./view/common/Main/MainContent";
 
 function App() {
 
