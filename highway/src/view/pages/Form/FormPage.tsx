@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
 
 import {getCustomer} from "./formDetail/customer";
@@ -8,7 +8,7 @@ import {getAdmin} from "./formDetail/admin";
 import {getUser} from "./formDetail/user";
 
 import {InputItem} from "../../input/InputItem";
-import {Label} from "../../../ui/label";
+import {Label} from "../../ui/label";
 import WebCamPic from "../Form/WebCamPic";
 import Button from "@mui/material/Button";
 
