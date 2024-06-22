@@ -4,7 +4,7 @@ import {useState} from "react";
 import {NavBar} from "../../common/NavBar/NavBar";
 
 export function AdminPage() {
-    const [currentPage, setCurrentPage] = useState<string>("dashboard");
+    const [currentPage, setCurrentPage] = useState<string>("user");
     return (
         <>
             <NavBar signIn={false} signUp={false} logOut={true} className={""}/>

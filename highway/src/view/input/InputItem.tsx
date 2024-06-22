@@ -7,7 +7,7 @@ import React, {
     useState
 } from "react";
 import {Label} from "../ui/label";
-import add from "../../images/add-icon.gif";
+import add from "../images/add-icon.gif";
 
 export function InputItem(props:any) {
 

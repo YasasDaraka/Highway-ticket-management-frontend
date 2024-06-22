@@ -1,74 +1,59 @@
-const accessRoleList = ["USER"]
-export function getUser(userId:string) {
+export function getUser() {
 
     return [
-        [
-            [
-                {
-                    id: "userName",
-                    title: "User Name",
-                    type: "text",
-                    placeholder: "User Name",
-                    description: "User name required",
-                    required: true,
-                },
-                {
-                    id: "userRole",
-                    title: "User Role",
-                    type: "select",
-                    placeholder: "Role",
-                    description: "",
-                    selectList: accessRoleList,
-                }
-            ],
-            [
+       [
+         [
+            {
+            id: "cusId",
+            title: "Customer ID",
+            type: "text",
+            placeholder: "Auto generated",
+            description: "",
 
-            ]
+            },
+            {
+                id: "cusName",
+                title: "Customer Name",
+                type: "text",
+                placeholder: "Name",
+                description: "",
+                required: true,
+            }
         ],
         [
-            [
+            {
+                id: "cusEmail",
+                title: "Email",
+                type: "email",
+                placeholder: "Email",
+                description: "",
 
-            ],
-            [
-
+            },
+            {
+                id: "cusContactNo",
+                title: "Contact number",
+                type: "number",
+                placeholder: "Contact",
+                description: "",
+                required: true
+            }
             ]
-        ],
-        [
-            [
-                {
-                    id: "userOldPassword",
-                    title: "Password for update or delete",
-                    type: "text",
-                    placeholder: "Password",
-                    description: "Password",
-                },
-            ],
-            [
-                {
-                    id: "userNewPass",
-                    title: "New Password",
-                    type: "text",
-                    placeholder: "New Password",
-                    description: "New Password",
+           ,[
+           {
 
-                },
+           }
             ],
             [
                 {
                     id: "button",
                 }
             ]
-        ],
-        [
+       ],
             [
-                {
-                    /* id: "rating"*/
-                },
-                {
-                    /*id: "web"*/
-                }
+
+
             ]
-        ]
+
     ]
 
 }
