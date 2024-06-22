@@ -35,7 +35,7 @@ export function MainView() {
                 </section>
             }
             {currentPage === 'login' &&
-                <AdminPage/>
+                <AdminPage setPage={setCurrentPage}/>
             }
         </>
     );

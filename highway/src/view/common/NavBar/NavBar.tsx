@@ -5,8 +5,9 @@ interface activeProps{
     signUp: boolean,
     className: string,
     logOut: boolean,
+    setPage?: (page: string) => void;
 }
-export function NavBar({signIn, signUp, logOut,className}: activeProps) {
+export function NavBar({signIn, signUp, logOut,className,setPage}: activeProps) {
 
     return (
         <header id="header" className={`${className} transparent-background`} style={{ boxShadow: '0px 1px 10px #94a3b8' }}>
@@ -14,7 +15,7 @@ export function NavBar({signIn, signUp, logOut,className}: activeProps) {
                 <div className="ml-auto mr-4 transparent-background">
                     {signIn && <LogButton id="signIn" content="Sign In" className="" navigate="/signin"/>}
                     {signUp && <LogButton id="signUp" content="Sign Up" className="" navigate="/signup"/>}
-                    {logOut && <LogButton id="userLogOut" content="Log Out" className="" navigate="/"/>}
+                    {logOut && <LogButton id="userLogOut" content="Log Out" className="" navigate="/" setPage={setPage}/>}
                 </div>
             </nav>
         </header>

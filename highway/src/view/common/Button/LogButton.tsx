@@ -1,3 +1,4 @@
+import {MainView} from "../../pages/MainView/MainView";
 
 interface LogButtonProps {
     id: string;
@@ -5,14 +6,26 @@ interface LogButtonProps {
     className: string;
     navigate:string
     onClick?: () => void;
+    setPage?: (page: string) => void;
 }
-export function LogButton({id ,content ,className,onClick}: LogButtonProps) {
+export function LogButton({id ,content ,className,onClick,setPage}: LogButtonProps) {
+    const handleClick = () => {
+        if (onClick){
+            onClick();
+        }
+        if (id ==="userLogOut"){
+            if (setPage){
+                setPage("view")
+            }
+        }
+    };
     return (
         <button
-            onClick={onClick}
+            onClick={handleClick}
             type="button"
             className={className}
             id={id}
+
         >{content}
         </button>
     );
