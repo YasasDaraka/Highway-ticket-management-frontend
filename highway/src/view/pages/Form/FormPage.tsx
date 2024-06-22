@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import {getVehicle} from "./formDetail/vehicle";
 import {getTicket} from "./formDetail/ticket";
 import {getPayment} from "./formDetail/payment";
+import {saveData} from "./formDetail/fetchData";
 
 interface FormPageProps {
     path:string
@@ -27,7 +28,7 @@ export function FormPage({path}: FormPageProps) {
     if (path === "user") {
         form = getUser();
         title = "User Form";
-        url = "http://localhost:8080/app/customer";
+        url = "http://localhost:8082/user";
         idName = "cusId"
 
     }
@@ -53,6 +54,11 @@ export function FormPage({path}: FormPageProps) {
 
     }
 
+    const onSubmit = async (data: any) => {
+        saveData(url,data,()=>{
+            setResetForm(true)
+        });
+    };
 
     return (
         <>
@@ -86,7 +92,7 @@ export function FormPage({path}: FormPageProps) {
 
                             {(data.id === 'button') && (
                                 <div className="w-[40vw]">
-                                    <Button sx={{ marginRight: 1 }} variant="contained" color="primary" size="small" type="button" >Save</Button>
+                                    <Button sx={{ marginRight: 1 }} variant="contained" color="primary" size="small" type="button" onClick={handleSubmit(onSubmit)}>Save</Button>
                                     <Button sx={{ marginRight: 1 }} variant="contained" color="success" size="small" type="button" >Update</Button>
                                     <Button sx={{ marginRight: 1 }} variant="contained" color="secondary" size="small" type="button" >Search</Button>
                                     <Button sx={{ marginRight: 1 }} variant="contained" color="error" size="small" type="button" >Delete</Button>
