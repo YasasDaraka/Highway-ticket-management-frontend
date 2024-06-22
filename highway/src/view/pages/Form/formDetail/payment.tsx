@@ -4,38 +4,36 @@ export function getPayment() {
         [
             [
                 {
-                    id: "paymentId",
+                    id: "id",
                     title: "Payment ID",
                     type: "text",
-                    placeholder: "Payment ID",
+                    placeholder: "Payment Id",
                     description: "",
 
                 },
                 {
-                    id: "cusName",
-                    title: "Customer Name",
-                    type: "text",
-                    placeholder: "Name",
+                    id: "amount",
+                    title: "Amount",
+                    type: "number",
+                    placeholder: "Amount",
                     description: "",
-                    required: true,
                 }
             ],
             [
                 {
-                    id: "cusEmail",
-                    title: "Email",
-                    type: "email",
-                    placeholder: "Email",
+                    id: "ticketId",
+                    title: "Ticket ID",
+                    type: "text",
+                    placeholder: "Ticket ID",
                     description: "",
 
                 },
                 {
-                    id: "cusContactNo",
-                    title: "Contact number",
-                    type: "number",
-                    placeholder: "Contact",
-                    description: "",
-                    required: true
+                    id: "status",
+                    title: "Status",
+                    type: "text",
+                    placeholder: "Status",
+                    description: ""
                 }
             ]
             ,[

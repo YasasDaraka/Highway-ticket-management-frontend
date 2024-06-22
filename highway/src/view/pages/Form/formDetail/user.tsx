@@ -4,16 +4,16 @@ export function getUser() {
        [
          [
             {
-            id: "cusId",
-            title: "Customer ID",
+            id: "nic",
+            title: "User NIC",
             type: "text",
-            placeholder: "Auto generated",
+            placeholder: "User NIC",
             description: "",
 
             },
             {
-                id: "cusName",
-                title: "Customer Name",
+                id: "name",
+                title: "User Name",
                 type: "text",
                 placeholder: "Name",
                 description: "",
@@ -22,20 +22,20 @@ export function getUser() {
         ],
         [
             {
-                id: "cusEmail",
-                title: "Email",
-                type: "email",
-                placeholder: "Email",
-                description: "",
-
-            },
-            {
-                id: "cusContactNo",
+                id: "contactNo",
                 title: "Contact number",
                 type: "number",
                 placeholder: "Contact",
                 description: "",
-                required: true
+
+            },
+            {
+                /*id: "cusContactNo",
+                title: "",
+                type: "number",
+                placeholder: "Contact",
+                description: "",
+                required: true*/
             }
             ]
            ,[

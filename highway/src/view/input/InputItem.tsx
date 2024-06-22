@@ -69,7 +69,7 @@ export function InputItem(props:any) {
                     required={props.isRequired}
                     defaultValue={props.defaultValue}
                 />
-                    {(props.id === 'cusId' || props.id === 'supId') && (
+                    {(props.id === 'nic' || props.id === 'licensePlate' || props.id === 'id') && (
                         <img
                             id="bar-icon"
                             className="relative left-3 top-2 w-9 h-9"

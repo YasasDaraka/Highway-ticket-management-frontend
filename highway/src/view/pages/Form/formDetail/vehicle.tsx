@@ -4,38 +4,37 @@ export function getVehicle() {
         [
             [
                 {
-                    id: "cusId",
-                    title: "Customer ID",
+                    id: "licensePlate",
+                    title: "Vehicle Number",
                     type: "text",
-                    placeholder: "Auto generated",
+                    placeholder: "Vehicle Number",
                     description: "",
 
                 },
                 {
-                    id: "cusName",
-                    title: "Customer Name",
+                    id: "model",
+                    title: "Vehicle Model",
                     type: "text",
-                    placeholder: "Name",
+                    placeholder: "Model",
                     description: "",
-                    required: true,
                 }
             ],
             [
                 {
-                    id: "cusEmail",
-                    title: "Email",
-                    type: "email",
-                    placeholder: "Email",
+                    id: "user",
+                    title: "User NIC",
+                    type: "text",
+                    placeholder: "User NIC",
                     description: "",
 
                 },
                 {
-                    id: "cusContactNo",
+                    /*id: "cusContactNo",
                     title: "Contact number",
                     type: "number",
                     placeholder: "Contact",
                     description: "",
-                    required: true
+                    required: true*/
                 }
             ]
             ,[

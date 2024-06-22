@@ -4,38 +4,43 @@ export function getTicket() {
         [
             [
                 {
-                    id: "cusId",
-                    title: "Customer ID",
+                    id: "id",
+                    title: "Ticket ID",
                     type: "text",
-                    placeholder: "Auto generated",
+                    placeholder: "Ticket ID",
                     description: "",
 
                 },
                 {
-                    id: "cusName",
-                    title: "Customer Name",
+                    id: "description",
+                    title: "Description",
                     type: "text",
-                    placeholder: "Name",
-                    description: "",
-                    required: true,
+                    placeholder: "Description",
+                    description: ""
                 }
             ],
             [
                 {
-                    id: "cusEmail",
-                    title: "Email",
-                    type: "email",
-                    placeholder: "Email",
+                    id: "status",
+                    title: "Status",
+                    type: "text",
+                    placeholder: "status",
                     description: "",
 
                 },
                 {
-                    id: "cusContactNo",
-                    title: "Contact number",
-                    type: "number",
-                    placeholder: "Contact",
+                    id: "userId",
+                    title: "User NIC",
+                    type: "text",
+                    placeholder: "User NIC",
                     description: "",
-                    required: true
+                },
+                {
+                    id: "vehicleId",
+                    title: "Vehicle Number",
+                    type: "text",
+                    placeholder: "Vehicle Number",
+                    description: "",
                 }
             ]
             ,[
