@@ -27,7 +27,7 @@ export const TableView = ({rows}:DynamicTableProps) => {
                 <TableHead>
                     <TableRow>
                         {headers.map((header) => (
-                            <TableCell key={header} sx={{ backgroundColor: '#ECEFF1', color: 'black' ,textAlign: 'center',fontWeight: 'bold'}}>{header}</TableCell>
+                            <TableCell key={header} sx={{ backgroundColor: '#566063', color: '#ECEFF1' ,textAlign: 'center',fontWeight: 'bold', fontSize: '1.1vw'}}>{header}</TableCell>
                         ))}
                     </TableRow>
                 </TableHead>
