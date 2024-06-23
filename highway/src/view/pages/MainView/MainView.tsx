@@ -12,7 +12,7 @@ export function MainView() {
         <>
             {currentPage === 'view' &&
                 <section className="w-full background-section">
-                    <NavBar signIn={true} signUp={true} className={"z-10"} logOut={false}/>
+                    <NavBar signIn={true} signUp={true} className={"z-10"} logOut={false} color={true}/>
 
                     <div className="relative">
                         {/* <img

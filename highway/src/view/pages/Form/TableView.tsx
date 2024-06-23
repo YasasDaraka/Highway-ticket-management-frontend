@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-
+import { blueGrey } from '@mui/material/colors';
 interface DataRow {
     [key: string]: any;
 }
@@ -21,20 +21,22 @@ export const TableView = ({rows}:DynamicTableProps) => {
                 height: '35vw',
                 overflowY: 'auto',
                 scrollbarWidth: 'none',
-                msOverflowStyle: 'none'}}>
+                msOverflowStyle: 'none',
+            backgroundColor: blueGrey[900]}}>
             <Table stickyHeader>
                 <TableHead>
                     <TableRow>
                         {headers.map((header) => (
-                            <TableCell key={header} sx={{ backgroundColor: '#ECEFF1', color: 'black' }}>{header}</TableCell>
+                            <TableCell key={header} sx={{ backgroundColor: '#ECEFF1', color: 'black' ,textAlign: 'center',fontWeight: 'bold'}}>{header}</TableCell>
                         ))}
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map((row, rowIndex) => (
-                        <TableRow key={rowIndex}>
+                        <TableRow key={rowIndex} sx={{
+                            '&:hover': {backgroundColor: blueGrey[800]} }}>
                             {headers.map((header) => (
-                                <TableCell key={header}>{row[header]}</TableCell>
+                                <TableCell key={header} sx={{color: '#f0f0f0',textAlign: 'center'}}>{row[header]}</TableCell>
                             ))}
                         </TableRow>
                     ))}

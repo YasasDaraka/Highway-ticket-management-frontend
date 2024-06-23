@@ -10,7 +10,7 @@ export function AdminPage({setPage}: AdminPageProps) {
     const [currentPage, setCurrentPage] = useState<string>("user");
     return (
         <>
-            <NavBar signIn={false} signUp={false} logOut={true} className={""} setPage={setPage}/>
+            <NavBar signIn={false} signUp={false} logOut={true} className={""} setPage={setPage} color={false}/>
             <SideBar setCurrentPage={setCurrentPage}/>
             <MainForm path={currentPage}/>
         </>
