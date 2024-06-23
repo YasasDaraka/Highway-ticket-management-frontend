@@ -7,7 +7,9 @@ import Button from "@mui/material/Button";
 import {getVehicle} from "./formDetail/vehicle";
 import {getTicket} from "./formDetail/ticket";
 import {getPayment} from "./formDetail/payment";
-import {saveData} from "./formDetail/fetchData";
+import {deleteEntity, saveData, searchAllData, searchData, updateData} from "./formDetail/fetchData";
+import {TableView} from "./TableView";
+
 
 interface FormPageProps {
     path:string
@@ -19,18 +21,19 @@ export function FormPage({path}: FormPageProps) {
     const [resetWebForm, setResetWebForm] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
     const [rating, setRating] = useState("");
+    const [previewData, setPreviewData] = useState([]);
 
     let form: any[][] = []
     let title = ""
     let url = ""
     let idName = ""
-
+    let remove = ""
     if (path === "user") {
         form = getUser();
         title = "User Form";
         url = "http://localhost:8082/user";
-        idName = "cusId"
-
+        idName = "nic"
+        remove = "userNic"
     }
     if (path === "vehicle") {
         form = getVehicle();
@@ -54,10 +57,66 @@ export function FormPage({path}: FormPageProps) {
 
     }
 
-    const onSubmit = async (data: any) => {
-        saveData(url,data,()=>{
-            setResetForm(true)
-        });
+    useEffect(() => {
+        searchAllData(url).then(data => {
+            setPreviewData(data)
+        })
+
+    }, [url]);
+
+    const handleActionSubmit = (action: string) => {
+        return handleSubmit((data) => onSubmit(data, action));
+    };
+    const onSubmit = async (data: any,action:string) => {
+        if (action === "save"){
+            const allFieldsNotEmpty = Object.values(data).every((value:any) => value.trim() !== '');
+            if (!allFieldsNotEmpty) {
+                alert('Please fill out all fields.');
+                return;
+            }
+            saveData(url,data,()=>{
+                setResetForm(true);
+                searchAllData(url).then(data => {
+                    setPreviewData(data)
+                })
+            });
+        }
+        if (action === "update"){
+            const allFieldsNotEmpty = Object.values(data).every((value:any) => value.trim() !== '');
+            if (!allFieldsNotEmpty) {
+                alert('Please fill out all fields.');
+                return;
+            }
+            updateData(url,data,()=>{
+                setResetForm(true);
+                searchAllData(url).then(data => {
+                    setPreviewData(data)
+                })
+            });
+        }
+        if (action === "search"){
+            const idValue = watch(idName);
+            if (idValue) {
+                const result = await searchData(url,"/search/",idValue)
+                if(result){
+                    reset(result);
+                    setResetForm(false)
+                }
+            }
+
+        }
+        if (action === "delete"){
+            const idValue = watch(idName);
+            if (idValue) {
+                await deleteEntity(url,{[remove] : idValue},()=>{
+                    searchAllData(url).then(data => {
+                        setPreviewData(data)
+                    })
+                    setResetForm(true);
+                })
+            }
+
+        }
     };
 
     return (
@@ -68,7 +127,7 @@ export function FormPage({path}: FormPageProps) {
                 {formData.map((section, divIndex) => (
                 <div key={index} className={`flex justify-between mb-2 ${(path === "employee" && divIndex === 1)?"z-5":"z-10"} w-[40vw]`}>
                     {section.map((data:any) => (
-                        <div key={data.id} className={`z-50 ${(section.length === 1 || section.length === 1) ? 'w-[18vw]' : 'w-[13.2vw]'} ${data.id === 'rating' ? 'w-[20vw]' : ''} ${data.id === 'web' ? 'w-[20vw]' : ''}`}>
+                        <div key={data.id} className={`z-50 ${(section.length === 1 || section.length === 1) ? 'w-[18vw]' : 'w-[13.2vw]'} ${data.id === 'rating' ? 'w-[20vw]' : ''} ${data.id === 'web' ? 'w-[20vw]' : ''} ${data.id === 'table' ? 'w-full' : ''}`}>
                             <InputItem
                                 key={data.id}
                                 id={data.id}
@@ -92,11 +151,17 @@ export function FormPage({path}: FormPageProps) {
 
                             {(data.id === 'button') && (
                                 <div className="w-[40vw]">
-                                    <Button sx={{ marginRight: 1 }} variant="contained" color="primary" size="small" type="button" onClick={handleSubmit(onSubmit)}>Save</Button>
-                                    <Button sx={{ marginRight: 1 }} variant="contained" color="success" size="small" type="button" >Update</Button>
-                                    <Button sx={{ marginRight: 1 }} variant="contained" color="secondary" size="small" type="button" >Search</Button>
-                                    <Button sx={{ marginRight: 1 }} variant="contained" color="error" size="small" type="button" >Delete</Button>
+                                    <Button sx={{ marginRight: 1 }} variant="contained" color="primary" size="small" type="button" onClick={handleActionSubmit("save")}>Save</Button>
+                                    <Button sx={{ marginRight: 1 }} variant="contained" color="success" size="small" type="button" onClick={handleActionSubmit("update")}>Update</Button>
+                                    <Button sx={{ marginRight: 1 }} variant="contained" color="secondary" size="small" type="button" onClick={handleActionSubmit("search")}>Search</Button>
+                                    <Button sx={{ marginRight: 1 }} variant="contained" color="error" size="small" type="button" onClick={handleActionSubmit("delete")}>Delete</Button>
                                     <Button sx={{ marginRight: 1 }} variant="contained" color="warning" size="small" type="button" onClick={function () {setResetForm(true);}}>Clear</Button>
+                                </div>
+                            )}
+
+                            {(data.id === 'table') && (
+                                <div>
+                                <TableView rows={previewData}/>
                                 </div>
                             )}
 
