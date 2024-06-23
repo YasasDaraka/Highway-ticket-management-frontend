@@ -49,8 +49,11 @@ export function getVehicle() {
             ]
         ],
         [
-
-
+            [
+                {
+                    id: "table",
+                }
+            ]
         ]
 
     ]

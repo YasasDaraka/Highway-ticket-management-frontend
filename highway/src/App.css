@@ -45,7 +45,7 @@ html {
     z-index: 16;
 }
 #bar-icon:hover{
-    transform: scale(1.3);
+    transform: scale(1.8);
     transition: all 0.2s;
 }
 .admin-icon:hover{

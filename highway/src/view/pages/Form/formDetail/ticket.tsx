@@ -55,8 +55,11 @@ export function getTicket() {
             ]
         ],
         [
-
-
+            [
+                {
+                    id: "table",
+                }
+            ]
         ]
 
     ]

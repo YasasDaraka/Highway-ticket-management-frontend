@@ -48,8 +48,11 @@ export function getPayment() {
             ]
         ],
         [
-
-
+            [
+                {
+                    id: "table",
+                }
+            ]
         ]
 
     ]

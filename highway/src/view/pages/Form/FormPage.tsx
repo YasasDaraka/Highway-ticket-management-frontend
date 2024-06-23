@@ -28,6 +28,7 @@ export function FormPage({path}: FormPageProps) {
     let url = ""
     let idName = ""
     let remove = ""
+
     if (path === "user") {
         form = getUser();
         title = "User Form";
@@ -37,31 +38,31 @@ export function FormPage({path}: FormPageProps) {
     }
     if (path === "vehicle") {
         form = getVehicle();
-        title = "User Form";
-        url = "http://localhost:8080/app/customer";
-        idName = "cusId"
-
+        title = "Vehicle Form";
+        url = "http://localhost:8083/vehicle";
+        idName = "licensePlate"
+        remove = "licensePlate"
     }
     if (path === "ticket") {
         form = getTicket();
-        title = "User Form";
-        url = "http://localhost:8080/app/customer";
-        idName = "cusId"
-
+        title = "Ticket Form";
+        url = "http://localhost:8084/ticket";
+        idName = "id"
+        remove = "Id"
     }
     if (path === "payment") {
         form = getPayment();
-        title = "User Form";
-        url = "http://localhost:8080/app/customer";
-        idName = "cusId"
-
+        title = "Payment Form";
+        url = "http://localhost:8085/payment";
+        idName = "id"
+        remove = "Id"
     }
 
     useEffect(() => {
+        setPreviewData([]);
         searchAllData(url).then(data => {
             setPreviewData(data)
         })
-
     }, [url]);
 
     const handleActionSubmit = (action: string) => {
@@ -69,8 +70,8 @@ export function FormPage({path}: FormPageProps) {
     };
     const onSubmit = async (data: any,action:string) => {
         if (action === "save"){
-            const allFieldsNotEmpty = Object.values(data).every((value:any) => value.trim() !== '');
-            if (!allFieldsNotEmpty) {
+            const empty = Object.values(data).every((value:any) => value.trim() !== '');
+            if (!empty) {
                 alert('Please fill out all fields.');
                 return;
             }
@@ -82,8 +83,8 @@ export function FormPage({path}: FormPageProps) {
             });
         }
         if (action === "update"){
-            const allFieldsNotEmpty = Object.values(data).every((value:any) => value.trim() !== '');
-            if (!allFieldsNotEmpty) {
+            const empty = Object.values(data).every((value:any) => value.trim() !== '');
+            if (!empty) {
                 alert('Please fill out all fields.');
                 return;
             }

@@ -11,7 +11,7 @@ interface DynamicTableProps {
 
 export const TableView = ({rows}:DynamicTableProps) => {
     if (!Array.isArray(rows) || rows.length === 0) {
-        return <div>No data available</div>;
+        return <div className={"text-center text-orange-700 pt-8 font-bold"}>No Data Available</div>;
     }
 
     const headers = Object.keys(rows[0]);
