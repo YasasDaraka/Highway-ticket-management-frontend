@@ -71,7 +71,7 @@ export function InputItem(props:any) {
                 />
                     {(props.id === 'nic' || props.id === 'licensePlate' || props.id === 'id') && (
                         <img
-                            id="bar-icon"
+                            id="add-icon"
                             className="relative left-3 top-2 w-9 h-9"
                             src={add}
                             alt="Icon"
