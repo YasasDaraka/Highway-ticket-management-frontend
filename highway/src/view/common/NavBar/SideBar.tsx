@@ -3,6 +3,10 @@ import dashboard from "../../images/dashboard.gif";
 import customer from "../../images/customer.gif";
 import inventory from "../../images/inventory.gif";
 import supply from "../../images/supply.gif";
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import Vehicle from '@mui/icons-material/DirectionsCarFilledTwoTone';
+import Ticket from '@mui/icons-material/ConfirmationNumberTwoTone';
+import Payment from '@mui/icons-material/PaidTwoTone';
 interface SideBarProps {
     setCurrentPage: (page: string) => void;
 }
@@ -18,16 +22,20 @@ export function SideBar({ setCurrentPage }: SideBarProps) {
                 </div>
                 <nav className="flex flex-col items-center justify-between h-[31.1vw] pt-[18vh]">
                     <a href="#" id="btnDashboard" className="relative flex items-center mb-6">
-                        <img onClick={() => setCurrentPage("user")} className="w-8 lg:w-9 z-10 admin-icon" src={dashboard} alt="Dashboard"/>
+                        <AccountCircle onClick={() => setCurrentPage("user")} className="w-10 z-10 admin-icon"
+                                       sx={{ fontSize: 40, cursor: 'pointer', color: 'gray', '&:hover': { color: '#e0e0e0'}}}/>
                     </a>
                     <a href="#" id="btnCustomer" className="relative flex items-center mb-6">
-                        <img onClick={() => setCurrentPage("vehicle")} className="w-10 z-10 admin-icon" src={customer} alt="Customer"/>
+                        <Vehicle onClick={() => setCurrentPage("vehicle")} className="w-10 z-10 admin-icon"
+                            sx={{ fontSize: 40, cursor: 'pointer' , color: 'gray', '&:hover': { color: '#e0e0e0'}}}/>
                     </a>
                     <a href="#" id="btnInventory" className="relative flex items-center mb-6">
-                        <img onClick={() => setCurrentPage("ticket")} className="w-10 z-10 admin-icon" src={inventory} alt="Inventory"/>
+                        <Ticket onClick={() => setCurrentPage("ticket")} className="w-10 z-10 admin-icon"
+                                 sx={{ fontSize: 40, cursor: 'pointer' , color: 'gray', '&:hover': { color: '#e0e0e0'}}}/>
                     </a>
                     <a href="#" id="btnSupplier" className="relative flex items-center mb-6">
-                        <img onClick={() => setCurrentPage("payment")} className="w-11 z-10 admin-icon" src={supply} alt="Supplier"/>
+                        <Payment onClick={() => setCurrentPage("payment")} className="w-10 z-10 admin-icon"
+                                sx={{ fontSize: 40, cursor: 'pointer' , color: 'gray', '&:hover': { color: '#e0e0e0'}}}/>
                     </a>
                 </nav>
             </div>
